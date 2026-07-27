@@ -1,0 +1,75 @@
+name: Local Assistant
+version: 1.0.0
+schema: v1
+models:
+  # Size: ~0.3 GB | Max Context: 8k | Speed: ~120 tok/s | Score: 78/100
+  - name: Nomic Embed
+    provider: ollama
+    model: nomic-embed-text:latest
+    roles:
+      - embed
+
+  # Size: ~8.2 GB | Max Context: 128k | Speed: ~35 tok/s | Score: 86/100
+  - name: Gemma 4 (12B)
+    provider: ollama
+    model: gemma4:12b
+    roles:
+      - chat
+      - edit
+      - apply
+
+  # Size: ~1.6 GB | Max Context: 8k | Speed: ~85 tok/s | Score: 72/100
+  - name: Gemma 2 (2B)
+    provider: ollama
+    model: gemma2:2b
+    roles:
+      - chat
+      - edit
+
+  # - name: GLM 4.7 Flash (Q4_K_M) # To heavy for my m3Pro_36Go
+  #   provider: ollama
+  #   model: glm-4.7-flash:q4_K_M
+  #   roles:
+  #     - chat
+  #     - edit
+  #     - apply
+
+  # Size: ~7.1 GB | Max Context: 128k | Speed: ~40 tok/s | Score: 83/100
+  - name: Mistral Nemo
+    provider: ollama
+    model: mistral-nemo
+    roles:
+      - chat
+      - edit
+      - apply
+
+  # - name: Kimi K2.7 Code
+  #   provider: ollama
+  #   model: kimi-k2.7-code
+  #   roles:
+  #     - chat
+  #     - edit
+  #     - apply
+  #     - autocomplete
+
+  # Size: ~1.1 GB | Max Context: 32k | Speed: ~95 tok/s | Score: 76/100
+  - name: Qwen 2.5 Coder (1.5B)
+    provider: ollama
+    model: qwen2.5-coder:1.5b
+    roles:
+      - autocomplete
+
+  - name: BGE Reranker Base
+    provider: ollama
+    model: bge-reranker-large # or bge-reranker-base
+    roles:
+    - rerank
+
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase
