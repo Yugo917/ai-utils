@@ -11,6 +11,9 @@
 * **[LiveBench](https://livebench.ai/)**  
   *A regularly updated LLM benchmark.*
 
+* **[MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard)**  
+  *A benchmark evaluating and ranking text embedding models across various tasks.*
+
 ---
 
 ## 🛠️ Prompt Libraries & Methodologies
